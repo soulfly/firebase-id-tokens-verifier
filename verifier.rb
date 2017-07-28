@@ -173,5 +173,6 @@ puts
 # rsa_public = OpenSSL::X509::Certificate.new(valid_public_keys[kid]).public_key
 puts "Decoding..."
 decoded_token = verifier.decode(encoded_token, rsa_public)
-puts decoded_token
+puts decoded_token[0] # payload
+puts decoded_token[1] # headers
 puts "Done"
