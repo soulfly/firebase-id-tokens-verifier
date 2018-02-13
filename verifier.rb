@@ -178,7 +178,8 @@ puts
 
 
 # valid_public_keys = FirebaseIDTokenVerifier.retrieve_and_cache_jwt_valid_public_keys
-# rsa_public = OpenSSL::X509::Certificate.new(valid_public_keys[kid]).public_key
+# kid = valid_public_keys.keys[0]
+# rsa_public = OpenSSL::X509::Certificate.new(kid).public_key
 puts "Decoding..."
 decoded_token = verifier.decode(encoded_token, rsa_public)
 puts decoded_token[0] # payload
